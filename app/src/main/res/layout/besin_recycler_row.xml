@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="besin"
+            type="com.diyaddinkilic.besinlerkitabi.model.Besin" />
+<variable
+    name="listener"
+    type="com.diyaddinkilic.besinlerkitabi.adapter.BesinClickListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:onClick="@{listener::besinTiklandi}"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/besin_uuid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@{String.valueOf(besin.uuid)}"
+            >
+        </TextView>
+        
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:layout_weight="3"
+            android:downloadImage="@{besin.besinGorsel}"
+            >
+        </ImageView>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center">
+            <TextView
+                android:id="@+id/ismi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{besin.besinIsim}"
+                android:layout_margin="7dp"
+                android:textSize="30sp"
+                android:textColor="#831D04"
+                android:gravity="center"
+                android:textStyle="bold"
+                >
+            </TextView>
+            <TextView
+                android:id="@+id/kalorisi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{besin.besinKalori}"
+                android:layout_margin="7dp"
+                android:textSize="27sp"
+                android:gravity="center"
+                android:textColor="#831D04"
+                >
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
